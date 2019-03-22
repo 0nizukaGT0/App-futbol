@@ -1,18 +1,30 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
-</template>
+<div>
+  <h1>Esta sera el home2</h1>
+  <!-- <img src="./../../public/img/imagenes/balon.jpg" alt=""> -->
+  <table>
+    <th>fecha</th>
+    <th>lugar</th>
+    <th>team</th>
+    <tr v-for="l in partidos" :key="l.date">
+      <td>{{l.date}}</td>
+      <td>{{l.place}}</td>
+      <td>{{l.teams}}</td>
+    </tr>
+  </table>
 
+</div>
+</template>
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'home',
   components: {
-    HelloWorld
+
+  },
+  computed: {
+    partidos () {
+      return this.$store.state.schedule
+    }
   }
 }
 </script>
