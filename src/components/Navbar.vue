@@ -2,7 +2,7 @@
 <nav>
   <v-toolbar flat app color="primary">
     <v-toolbar-side-icon class="blue darken-2" @click="drawer=! drawer"></v-toolbar-side-icon>
-    <v-toolbar-title class="white--text">North Youth Soccer League hola</v-toolbar-title>
+    <v-toolbar-title class="white--text">North Youth Soccer League hola santi</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn icon>
       <v-img :src="'https://wi-images.condecdn.net/image/ql00Lg3xAPw/crop/405/f/iStock-613015246.jpg'"></v-img>
