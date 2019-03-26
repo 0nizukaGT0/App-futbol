@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <h1>schedule</h1>
-    <v-btn @click="enviar">enviar</v-btn>
+    <v-btn flat @click="enviar">enviar</v-btn>
     <table>
       <th>team1</th>
       <th>team2</th>
@@ -21,12 +21,12 @@
 <script>
 import db from '@/fb.js'
 export default {
-  data() {
+  data () {
     return {
       matches: []
     }
   },
-  created() {
+  created () {
     db.collection('matches').onSnapshot(res => {
       const changes = res.docChanges()
       changes.forEach(change => {
@@ -40,13 +40,13 @@ export default {
     })
   },
   methods: {
-    enviar() {
+    enviar () {
       const match = {
-        date :"02/05",
-        match_id :"123456b",
-        place :"tu casa",
-        team1 :"Las cucarachas",
-        team2 :"Los mininos"
+        date: '02/05',
+        match_id: '123456b',
+        place: 'tu casa',
+        team1: 'Las cucarachas',
+        team2: 'Los mininos'
       }
       db.collection('matches').add(match).then(() => {
         console.log('añadido')
