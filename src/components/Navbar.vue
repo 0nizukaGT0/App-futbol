@@ -4,9 +4,9 @@
     <v-toolbar-side-icon class="blue darken-2" @click="drawer=! drawer"></v-toolbar-side-icon>
     <v-toolbar-title class="white--text">North Youth Soccer League</v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-btn icon>
-      <v-img :src="'https://wi-images.condecdn.net/image/ql00Lg3xAPw/crop/405/f/iStock-613015246.jpg'"></v-img>
+    <v-btn small color="white">Log in
     </v-btn>
+    <LogIn/>
   </v-toolbar>
   <v-navigation-drawer dark v-model="drawer" app class="secondary">
     <v-list>
@@ -18,13 +18,17 @@
           <v-list-tile-title>{{link.title}}</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
+      <v-spacer></v-spacer>
+      <v-btn color="red">hola</v-btn>
     </v-list>
   </v-navigation-drawer>
 </nav>
 </template>
 
 <script>
+import LogIn from '@/components/LogIn'
 export default {
+  components: { LogIn },
   computed: {
     links: function () {
       return this.$store.state.links

@@ -2,10 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
-import Contact from './views/Contact.vue'
-import Formulario from './views/Formulario.vue'
 import Schedule from './views/Schedule.vue'
-import NyslRules from './views/Nysl-Rules.vue'
 
 Vue.use(Router)
 
@@ -24,29 +21,10 @@ export default new Router({
 
   },
   {
-    path: '/contact',
-    name: 'contact',
-    component: Contact
-
-  },
-  {
-    path: '/Formulario',
-    name: 'formulario',
-    component: Formulario
-
-  },
-  {
     path: '/schedule',
     name: 'schedule',
     component: Schedule
 
-  },
-  {
-    path: '/nysl-rules',
-    name: 'nyslrules',
-    component: NyslRules
-
   }
-
   ]
 })
