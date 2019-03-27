@@ -10,9 +10,9 @@
       <v-flex md3>
         <v-btn class="ma-1" block outline color="red">Adversary</v-btn>
       </v-flex>
-      <vflex md3>
+      <v-flex md3>
         <v-btn class="ma-1" block outline color="red">Place</v-btn>
-      </vflex>
+      </v-flex>
       <v-flex md3>
         <v-btn class="ma-1" block outline color="red">Date</v-btn>
       </v-flex>
@@ -24,9 +24,9 @@
       <v-flex md3>
         <v-btn class="ma-1" block outline>{{partido.team2}}</v-btn>
       </v-flex>
-      <vflex md3>
+      <v-flex md3>
         <v-btn class="ma-1" block outline>{{partido.place}}</v-btn>
-      </vflex>
+      </v-flex>
       <v-flex md3>
         <v-btn class="ma-1" block outline>{{partido.date}}</v-btn>
       </v-flex>

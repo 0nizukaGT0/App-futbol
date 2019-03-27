@@ -2,18 +2,7 @@
   <div>
     <h1>schedule</h1>
     <v-btn flat @click="enviar">enviar</v-btn>
-    <table>
-      <th>team1</th>
-      <th>team2</th>
-      <th>place</th>
-      <th>date</th>
-      <tr v-for="match in matches" :key="match.id">
-        <td>{{match.team1}}</td>
-        <td>{{match.team2}}</td>
-        <td>{{match.place}}</td>
-        <td>{{match.date}}</td>
-      </tr>
-    </table>
+<v-data-table></v-data-table>
   </div>
 
 </template>
@@ -41,8 +30,9 @@ export default {
   },
   methods: {
     enviar () {
+      alert('hola')
       const match = {
-        date: '02/05',
+        date: { day: 2, month: 8 },
         match_id: '123456b',
         place: 'tu casa',
         team1: 'Las cucarachas',
