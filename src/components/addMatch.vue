@@ -8,15 +8,15 @@
       <v-card-title class="headline">Añadir Match</v-card-title>
       <v-card-text>
         <v-form ref="form">
-          <v-text-field v-model="team1" :rules="rules" :counter="10" label="Team 1"></v-text-field>
-           <v-divider></v-divider>
-          <v-text-field v-model="team2" :rules="rules" :counter="10" label="Team 2"></v-text-field>
-           <v-divider></v-divider>
-          <v-text-field v-model="place" :rules="rules" :counter="10" label="Place"></v-text-field>
-           <v-divider></v-divider>
-          <v-text-field v-model="date.day"  label="Day"></v-text-field>
-           <v-divider></v-divider>
-          <v-text-field v-model="date.month"  label="Month"></v-text-field>
+          <v-text-field v-model="team1" :rules="rules" :counter="25" label="Team 1"></v-text-field>
+          <v-divider></v-divider>
+          <v-text-field v-model="team2" :rules="rules" :counter="25" label="Team 2"></v-text-field>
+          <v-divider></v-divider>
+          <v-text-field v-model="place" :rules="rules" :counter="50" label="Place"></v-text-field>
+          <v-divider></v-divider>
+          <v-select label="Day" :items="dias" v-model="date.day"></v-select>
+          <v-divider></v-divider>
+          <v-select label="Month" :items="meses" v-model="date.month"></v-select>
         </v-form>
       </v-card-text>
       <v-card-actions>
@@ -50,7 +50,6 @@ export default {
   },
   methods: {
     enviarMatch () {
-      alert('hola2')
       const match = {
         team1: this.team1,
         team2: this.team2,
@@ -60,6 +59,7 @@ export default {
       db.collection('matches').add(match).then(() => {
         console.log('Este partido a sido añadido')
       })
+      this.dialog = false
     },
     validate () {
       if (this.$refs.form.validate()) {
@@ -69,6 +69,22 @@ export default {
     },
     reset () {
       this.$refs.form.reset()
+    }
+  },
+  computed: {
+    dias () {
+      let totalDays = []
+      for (let i = 1; i < 32; i++) {
+        totalDays.push(i)
+      }
+      return totalDays
+    },
+    meses () {
+      let allMonths = []
+      for (var i = 1; i < 13; i++) {
+        allMonths.push(i)
+      }
+      return allMonths
     }
   }
 }
