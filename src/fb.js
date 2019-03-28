@@ -1,5 +1,6 @@
 import firebase from 'firebase/app'
-import 'firebase/firestore'// esto es para importar la base de dato de firestore
+import 'firebase/firestore' // esto es para importar la base de dato de firestore
+import 'firebase/auth'
 // Initialize Firebase
 var config = {
   apiKey: 'AIzaSyAafL8wLO16MPyyFEk_ugbqBdF3uIYcu4Y',
@@ -10,5 +11,9 @@ var config = {
   messagingSenderId: '73163749868'
 }
 firebase.initializeApp(config)
-const db = firebase.firestore()
-export default db
+
+const fire = {
+  auth: firebase.auth(),
+  db: firebase.firestore()
+}
+export default fire

@@ -8,12 +8,13 @@
         <v-layout column>
           <v-flex >
           <v-text-field
-            label="Email"
+            label="Email" v-model="mail"
           ></v-text-field>
         </v-flex>
         <v-flex>
-        <v-text-field label="Password"></v-text-field>
+        <v-text-field label="Password" v-model="pass"></v-text-field>
       </v-flex>
+      <v-btn @click="logIn">Log In</v-btn>
       </v-layout>
 
       </v-form>
@@ -25,7 +26,23 @@
 </template>
 
 <script>
-export default {}
+import fire from '@/fb.js'
+export default {
+  data () {
+    return {
+      mail: '',
+      pass: ''
+    }
+  },
+  methods: {
+    logIn () {
+      fire.auth.signInWithEmailAndPassword(this.mail, this.pass)
+        .then(cred => {
+          console.log(cred)
+        })
+    }
+  }
+}
 </script>
 
 <style lang="css" scoped>

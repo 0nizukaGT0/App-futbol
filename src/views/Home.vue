@@ -2,41 +2,37 @@
 <div id="home">
   <v-container>
     <h2>Matches de Hoy</h2>
-    <code>Los partidos que se carguen aqui deberian de ser solo los mas recientes a la fecha actual</code>
-    <v-layout row justify-space-between>
-      <v-flex md3>
-        <v-btn class="ma-1" block outline color="red">Local</v-btn>
-      </v-flex>
-      <v-flex md3>
-        <v-btn class="ma-1" block outline color="red">Adversary</v-btn>
-      </v-flex>
-      <v-flex md3>
-        <v-btn class="ma-1" block outline color="red">Place</v-btn>
-      </v-flex>
-      <v-flex md3>
-        <v-btn class="ma-1" block outline color="red">Date</v-btn>
-      </v-flex>
-    </v-layout>
-    <v-layout v-for="partido in partidos" :key="partido.date" row justify-space-between>
-      <v-flex md3>
-        <v-btn class="ma-1" block outline>{{partido.team1}}</v-btn>
-      </v-flex>
-      <v-flex md3>
-        <v-btn class="ma-1" block outline>{{partido.team2}}</v-btn>
-      </v-flex>
-      <v-flex md3>
-        <v-btn class="ma-1" block outline>{{partido.place}}</v-btn>
-      </v-flex>
-      <v-flex md3>
-        <v-btn class="ma-1" block outline>{{partido.date}}</v-btn>
-      </v-flex>
-    </v-layout>
+    <v-carousel>
+      <v-carousel-item v-for="(item,i) in items" :key="i">
+        <v-card>
+          <v-card-title>{{i}}</v-card-title>
+          <v-card-text>{{item.src}}</v-card-text>
+        </v-card>
+      </v-carousel-item>
+    </v-carousel>
   </v-container>
 </div>
 </template>
 <script>
 export default {
   components: {},
+  data () {
+    return {
+      items: [{
+        src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+      },
+      {
+        src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
+      },
+      {
+        src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
+      },
+      {
+        src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
+      }
+      ]
+    }
+  },
   computed: {
     partidos () {
       return this.$store.state.schedule

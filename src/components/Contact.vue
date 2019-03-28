@@ -9,7 +9,8 @@
       <v-card-text>
         <p>   <v-chip dark small color="grey" @click="dialog = false">
             <v-icon>close</v-icon>
-          </v-chip>    Pleae email us at <span class="email ">nysl@chisccer.org</span></p>
+          </v-chip>    Pleae email us at <a href="mailto:nysl@chisccer.org?subject=Consulta">
+            nysl@chisccer.org</a></p>
         <p>We will reply your email as soon as we can</p>
       </v-card-text>
     </v-card>

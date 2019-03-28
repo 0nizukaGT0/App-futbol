@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import db from '@/fb.js'
+import fire from '@/fb.js'
 export default {
   data () {
     return {
@@ -64,7 +64,7 @@ export default {
     }
   },
   created () {
-    db.collection('matches').onSnapshot(res => {
+    fire.db.collection('matches').onSnapshot(res => {
       const changes = res.docChanges()
       changes.forEach(change => {
         if (change.type === 'added') {
@@ -89,7 +89,7 @@ export default {
         team1: 'Las cucarachas',
         team2: 'Los mininos'
       }
-      db.collection('matches').add(match).then(() => {
+      fire.db.collection('matches').add(match).then(() => {
         console.log('añadido')
       })
     }
