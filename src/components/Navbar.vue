@@ -2,13 +2,11 @@
 <nav>
   <v-toolbar flat app color="primary">
     <v-toolbar-side-icon class="blue darken-2" @click="drawer=! drawer"></v-toolbar-side-icon>
-    <v-toolbar-title class="white--text">North Youth Soccer League</v-toolbar-title>
+    <v-toolbar-title class="white--text" v-if="drawer">{{linkActual}}</v-toolbar-title>
     <v-spacer></v-spacer>
-    <SignUp />
     <LogIn />
+    <logOut></logOut>
     <google></google>
-    <v-btn @clic="state">state</v-btn>
-    <v-btn @clic="logOut">Log out</v-btn>
   </v-toolbar>
   <v-navigation-drawer dark v-model="drawer" app class="secondary">
     <v-list>
@@ -20,7 +18,6 @@
           <v-list-tile-title>{{link.title}}</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
-
     </v-list>
   </v-navigation-drawer>
 </nav>
@@ -28,35 +25,27 @@
 
 <script>
 import LogIn from '@/components/LogIn'
-import SignUp from '@/components/SignUp'
+import logOut from '@/components/logOut'
+// import SignUp from '@/components/SignUp'
 import google from '@/components/google'
 import fire from '@/fb.js'
 export default {
   components: {
     LogIn,
-    SignUp,
-    google
-  },
-  computed: {
-    links: function () {
-      return this.$store.state.links
-    }
+    google,logOut
   },
   data () {
     return {
       // Home ,About,NYSL Rules,Schedule,Formulario,Contacto..
       drawer: false
-
     }
   },
-  methods: {
-    logOut () {
-      fire.auth.signOut().then(() => {
-        console.log('user sign out')
-      })
+  computed: {
+    links: function () {
+      return this.$store.state.links
     },
-    state () {
-      fire.auth.onAuthStateChange(user => console.log(user))
+    linkActual: function () {
+      return 'aqui va dep'
     }
   }
 }

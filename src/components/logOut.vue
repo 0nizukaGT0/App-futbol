@@ -1,10 +1,9 @@
 <template lang="html">
   <v-dialog>
-    <v-btn flat slot="activator" class="succes">Log Out</v-btn>
+    <v-btn flat slot="activator" class="succes" @click="logOut">Log Out</v-btn>
     <v-card>
       <v-card-text>
       <v-form>
-
         <v-layout column>
           <v-flex >
           <v-text-field
@@ -24,8 +23,15 @@
 </template>
 
 <script>
+import fire from '@/fb.js'
 export default {
-}
+  methods: {
+    logOut () {
+      fire.auth.signOut().then(() => {
+        console.log('user sign out')
+      })
+    }
+}}
 </script>
 
 <style lang="css" scoped>
