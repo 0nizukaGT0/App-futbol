@@ -2,7 +2,7 @@
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="290">
       <template v-slot:activator="{ on }">
-        <v-btn @click="on">Log in</v-btn>
+        <v-btn flat v-on="on">Log in</v-btn>
       </template>
       <v-card>
         <v-card-title class="headline">Log In</v-card-title>
@@ -15,7 +15,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="green darken-1" flat @click="dialog = false">Disagree</v-btn>
-          <v-btn color="green darken-1" flat @click="LogIn">Log In</v-btn>
+          <v-btn color="green darken-1" flat @click="logIn">Log In</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -27,7 +27,7 @@ import fire from '@/fb.js'
 export default {
   data () {
     return {
-      dialog:false,
+      dialog: false,
       mail: '',
       pass: ''
     }
@@ -38,7 +38,7 @@ export default {
         .then(cred => {
           console.log(cred)
         })
-        dialog = false
+      this.dialog = false
     }
   }
 }

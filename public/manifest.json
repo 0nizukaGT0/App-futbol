@@ -3,12 +3,12 @@
   "short_name": "proba",
   "icons": [
     {
-      "src": "./img/icons/android-chrome-192x192.png",
+      "src": "./img/imagenes/676630.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "./img/icons/android-chrome-512x512.png",
+      "src": "./img/imagenes/676630.png",
       "sizes": "512x512",
       "type": "image/png"
     }

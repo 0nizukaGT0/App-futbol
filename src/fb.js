@@ -11,9 +11,10 @@ var config = {
   messagingSenderId: '73163749868'
 }
 firebase.initializeApp(config)
-
+let proovedor = new firebase.auth.GoogleAuthProvider()
 const fire = {
   auth: firebase.auth(),
-  db: firebase.firestore()
+  db: firebase.firestore(),
+  provider: proovedor
 }
 export default fire

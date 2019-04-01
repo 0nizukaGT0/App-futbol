@@ -14,7 +14,7 @@
       <template v-slot:items="props">
         <td class="text-xs-center">{{ props.item.team1 }}</td>
         <td class="text-xs-center">{{ props.item.team2 }}</td>
-        <td class="text-xs-center">{{ props.item.place }}</td>
+        <td class="text-xs-center"><a :href="props.item.url">{{ props.item.place }}</a></td>
         <td class="text-xs-center">{{ props.item.date.day }}/ {{ props.item.date.month }}</td>
       </template>
       <!-- Aqui va la alerta que saltara si la busqueda fracasa -->

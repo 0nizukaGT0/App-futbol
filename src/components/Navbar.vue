@@ -4,9 +4,10 @@
     <v-toolbar-side-icon class="blue darken-2" @click="drawer=! drawer"></v-toolbar-side-icon>
     <v-toolbar-title class="white--text" v-if="drawer">{{linkActual}}</v-toolbar-title>
     <v-spacer></v-spacer>
-    <LogIn />
     <logOut></logOut>
-    <google></google>
+    <signUp></signUp>
+    <v-btn @click="state">State</v-btn>
+    <LogIn/>
   </v-toolbar>
   <v-navigation-drawer dark v-model="drawer" app class="secondary">
     <v-list>
@@ -27,12 +28,13 @@
 import LogIn from '@/components/LogIn'
 import logOut from '@/components/logOut'
 // import SignUp from '@/components/SignUp'
-import google from '@/components/google'
+import signUp from '@/components/signUp'
 import fire from '@/fb.js'
 export default {
   components: {
     LogIn,
-    google,logOut
+    signUp,
+    logOut
   },
   data () {
     return {
@@ -46,6 +48,28 @@ export default {
     },
     linkActual: function () {
       return 'aqui va dep'
+    }
+  },
+  methods: {
+    state () {
+      fire.auth.onAuthStateChanged(function (user) {
+        if (user) {
+          // User is signed in.
+          var displayName = user.displayName
+          var email = user.email
+          // var emailVerified = user.emailVerified
+          // var photoURL = user.photoURL
+          // var isAnonymous = user.isAnonymous
+          var uid = user.uid
+          var providerData = user.providerData
+          console.log(`El usuario actual es ${displayName} con el email ${email} y su id ${uid}  y su proveedor${providerData}`)
+          // ...
+        } else {
+          // User is signed out.
+          // ...
+          console.log('No hay usuario conectado')
+        }
+      })
     }
   }
 }
