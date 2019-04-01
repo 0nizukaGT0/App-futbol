@@ -29,14 +29,16 @@ export default {
     return {
       pass: '',
       mail: '',
-      user:''
+      user: ''
     }
   },
   methods: {
     enviarUser () {
       fire.auth.createUserWithEmailAndPassword(this.mail, this.pass)
-        .then(res => {console.log(res);
-      this.user=res}).catch(function (error) {
+        .then(res => {
+          console.log(res)
+          this.user = res
+        }).catch(function (error) {
         // Handle Errors here.
           console.log(error.code)
           console.log(error.message)
