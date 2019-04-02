@@ -5,7 +5,7 @@
     <v-toolbar-title class="white--text">{{this.$route.name}}</v-toolbar-title>
     <v-spacer></v-spacer>
     <logOut v-if="isUserLog"></logOut>
-    <signUp v-if="!isUserLog" ></signUp>
+    <!-- <signUp v-if="!isUserLog" ></signUp> -->
     <v-btn v-if="isUserLog"  depressed @click="state">State</v-btn>
     <LogIn v-if="!isUserLog"/>
   </v-toolbar>
@@ -27,12 +27,12 @@
 <script>
 import LogIn from '@/components/LogIn'
 import logOut from '@/components/logOut'
-import signUp from '@/components/signUp'
+// import signUp from '@/components/signUp'
 import fire from '@/fb.js'
 export default {
   components: {
     LogIn,
-    signUp,
+    // signUp,
     logOut
   },
   data () {
