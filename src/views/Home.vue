@@ -23,7 +23,7 @@
 </div>
 </template>
 <script>
-import fire from '@/fb.js'
+
 export default {
   components: {},
   data () {
@@ -40,27 +40,13 @@ export default {
       {
         src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
       }
-      ],
-      matches: []
+      ]
     }
   },
   computed: {
-    partidos () {
-      return this.$store.state.schedule
+    matches () {
+      return this.$store.state.matches
     }
-  },
-  created () {
-    fire.db.collection('matches').onSnapshot(res => {
-      const changes = res.docChanges()
-      changes.forEach(change => {
-        if (change.type === 'added') {
-          this.matches.push({
-            ...change.doc.data(),
-            id: change.doc.id
-          })
-        }
-      })
-    })
   }
 }
 </script>

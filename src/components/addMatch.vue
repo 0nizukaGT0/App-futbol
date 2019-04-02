@@ -29,7 +29,7 @@
 </v-layout>
 </template>
 <script>
-import db from './../fb.js'
+import fire from '@/fb.js'
 export default {
   data () {
     return {
@@ -56,7 +56,7 @@ export default {
         place: this.place,
         date: this.date
       }
-      db.collection('matches').add(match).then(() => {
+      fire.db.collection('matches').add(match).then(() => {
         console.log('Este partido a sido añadido')
       })
       this.dialog = false

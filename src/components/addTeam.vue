@@ -23,7 +23,7 @@
   </v-layout>
 </template>
 <script>
-import db from '@/fb.js'
+import fire from '@/fb.js'
 export default {
   data () {
     return {
@@ -38,7 +38,7 @@ export default {
         name_team: this.nameTeam,
         number_players: this.numberPlayers
       }
-      db.collection('teams').add(team).then(() => {
+      fire.db.collection('teams').add(team).then(() => {
         console.log('Este team a sido añadido')
       })
       this.dialog = false
