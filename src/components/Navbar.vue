@@ -27,7 +27,6 @@
 <script>
 import LogIn from '@/components/LogIn'
 import logOut from '@/components/logOut'
-// import SignUp from '@/components/SignUp'
 import signUp from '@/components/signUp'
 import fire from '@/fb.js'
 export default {
