@@ -1,5 +1,5 @@
 <template lang="html">
-    <v-btn flat slot="activator" class="succes" @click="logOut">Log Out</v-btn>
+    <v-btn depressed slot="activator" class="succes" @click="logOut">Log Out</v-btn>
 </template>
 
 <script>
@@ -9,6 +9,7 @@ export default {
     logOut () {
       fire.auth.signOut().then(() => {
         console.log('user sign out')
+        this.$store.commit('userLogged', '')
       })
     }
   } }

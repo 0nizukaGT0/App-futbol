@@ -1,13 +1,13 @@
 <template >
 <nav>
-  <v-toolbar flat app color="primary">
-    <v-toolbar-side-icon class="blue darken-2" @click="drawer=! drawer"></v-toolbar-side-icon>
-    <v-toolbar-title class="white--text" v-if="drawer">{{linkActual}}</v-toolbar-title>
+  <v-toolbar flat app color="green darken-1">
+    <v-toolbar-side-icon class="green darken-2" @click="drawer=! drawer"></v-toolbar-side-icon>
+    <v-toolbar-title class="white--text">{{this.$route.name}}</v-toolbar-title>
     <v-spacer></v-spacer>
-    <logOut></logOut>
-    <signUp></signUp>
-    <v-btn @click="state">State</v-btn>
-    <LogIn/>
+    <logOut v-if="isUserLog"></logOut>
+    <signUp v-if="!isUserLog" ></signUp>
+    <v-btn v-if="isUserLog"  depressed @click="state">State</v-btn>
+    <LogIn v-if="!isUserLog"/>
   </v-toolbar>
   <v-navigation-drawer dark v-model="drawer" app class="secondary">
     <v-list>
@@ -46,9 +46,7 @@ export default {
     links: function () {
       return this.$store.state.links
     },
-    linkActual: function () {
-      return 'aqui va dep'
-    }
+    isUserLog: function () { return this.$store.state.isUserLog }
   },
   methods: {
     state () {

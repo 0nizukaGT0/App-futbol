@@ -1,8 +1,7 @@
 <template lang="html">
-  <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="290">
       <template v-slot:activator="{ on }">
-        <v-btn flat v-on="on">Log in</v-btn>
+        <v-btn depressed v-on="on">Log in</v-btn>
       </template>
       <v-card>
         <v-card-title class="headline">Log In</v-card-title>
@@ -19,7 +18,6 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-  </v-layout>
 </template>
 
 <script>
@@ -29,7 +27,8 @@ export default {
     return {
       dialog: false,
       mail: '',
-      pass: ''
+      pass: '',
+      user: ''
     }
   },
   methods: {
@@ -37,6 +36,8 @@ export default {
       fire.auth.signInWithEmailAndPassword(this.mail, this.pass)
         .then(cred => {
           console.log(cred)
+          this.user = cred.user.email
+          this.$store.commit('userLogged', this.user)
         })
       this.dialog = false
     }

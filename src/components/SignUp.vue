@@ -1,6 +1,6 @@
 <template>
 <v-dialog>
-  <v-btn flat slot="activator" class="succes">
+  <v-btn depressed slot="activator" class="succes">
     Sign up
   </v-btn>
   <v-card>
@@ -14,8 +14,19 @@
             <v-text-field label="Password" v-model="pass"></v-text-field>
           </v-flex>
         </v-layout>
-        <v-btn @click="googleAuth">google</v-btn>
         <v-btn color="succes" @click="enviarUser">Send</v-btn>
+        <v-btn icon @click="googleAuth">
+          <v-img src="https://image.flaticon.com/icons/png/512/281/281764.png"></v-img>
+        </v-btn>
+        <v-btn icon>
+          <v-img src="https://image.flaticon.com/icons/svg/25/25231.svg"></v-img>
+        </v-btn>
+        <v-btn icon>
+          <v-img src="https://image.flaticon.com/icons/png/512/124/124010.png"></v-img>
+        </v-btn>
+        <v-btn icon>
+          <v-img src="https://ikaltours.com/wp-content/uploads/2018/10/twitter-round-logo-png-transparent-background-7.png"></v-img>
+        </v-btn>
       </v-form>
     </v-card-text>
   </v-card>
@@ -37,9 +48,10 @@ export default {
       fire.auth.createUserWithEmailAndPassword(this.mail, this.pass)
         .then(res => {
           console.log(res)
-          this.user = res
+          this.user = res.user.email
+          this.$store.commit('userLogged', this.user)
         }).catch(function (error) {
-        // Handle Errors here.
+          // Handle Errors here.
           console.log(error.code)
           console.log(error.message)
         })
