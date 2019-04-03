@@ -5,7 +5,10 @@
         <v-layout row wrap align-center>
           <v-flex>
             Hello I am center to vertically using "align-center".
+            Aqui añadiremos un inout que hara una mutaion a la fecha actual , eso trigerea el
+             getter que nos devuelve fechas cercanas a eso , en este compoente debemos ver que hacer si no hya nada
             <v-btn v-if='isAdmin'>El usuario{{currentUser}} es admin </v-btn>
+            <v-card></v-card>
           </v-flex>
         </v-layout>
       </v-container>

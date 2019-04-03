@@ -4,6 +4,8 @@
   <p>Veriificacion por mail</p>
   <p>Seguridad en la base de datos y authentication</p>
   <p>Arreglar todos los formularios</p>
+  <p>Añadir una forma de contaccto para que nos envien sugerencias a nosotros esto desde netlify</p>
+  <p>acabar de hacer la pagina principal</p>
 
 </div>
 </template>

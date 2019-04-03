@@ -14,7 +14,9 @@
           <v-divider></v-divider>
           <v-text-field v-model="team2" :rules="rules" :counter="25" label="Team 2"></v-text-field>
           <v-divider></v-divider>
-          <v-text-field v-model="place" :rules="rules" :counter="50" label="Place"></v-text-field>
+          <v-select label="place" :items="places" v-model="place"></v-select>
+          <v-divider></v-divider>
+          <v-text-field v-model="url"  label="url"></v-text-field>
           <v-divider></v-divider>
           <v-select label="Day" :items="dias" v-model="date.day"></v-select>
           <v-divider></v-divider>
@@ -44,10 +46,12 @@ export default {
       team1: '',
       team2: '',
       place: '',
+      url: '',
       date: {
         day: null,
         month: null
-      }
+      },
+      places: ['AJ Katzenmaier', 'Greenbay', 'Howard A Yeager', 'Marjorie P Hart', 'North', 'South']
     }
   },
   methods: {
@@ -56,6 +60,7 @@ export default {
         team1: this.team1,
         team2: this.team2,
         place: this.place,
+        url: this.url,
         date: this.date
       }
       fire.db.collection('matches').add(match).then(() => {
