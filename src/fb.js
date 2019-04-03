@@ -11,8 +11,8 @@ var config = {
   messagingSenderId: '73163749868'
 }
 firebase.initializeApp(config)
-let proovedorGoogle = new firebase.auth.GoogleAuthProvider()
 let proovedorFacebook = new firebase.auth.FacebookAuthProvider()
+let proovedorGoogle = new firebase.auth.GoogleAuthProvider()
 let proovedorTwitter = new firebase.auth.TwitterAuthProvider()
 let proovedorGithub = new firebase.auth.GithubAuthProvider()
 const fire = {

@@ -5,21 +5,33 @@
     <v-toolbar-title class="white--text">{{this.$route.name}}</v-toolbar-title>
     <v-spacer></v-spacer>
     <logOut v-if="isUserLog"></logOut>
-    <signUp v-if="!isUserLog" ></signUp>
-    <v-btn v-if="isUserLog"  depressed @click="state">State</v-btn>
-    <LogIn v-if="!isUserLog"/>
+    <registrar v-if="!isUserLog"></registrar>
+    <v-btn v-if="isUserLog" depressed @click="state">State</v-btn>
+    <LogIn v-if="!isUserLog" />
   </v-toolbar>
   <v-navigation-drawer dark v-model="drawer" app class="secondary">
-    <v-list>
-      <v-list-tile dark v-for="link in links" :key="link.title" router :to="link.route">
-        <v-list-tile-action>
-          <v-icon>{{link.icon}}</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-content>
-          <v-list-tile-title>{{link.title}}</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
-    </v-list>
+    <v-layout column fill-height>
+      <v-list>
+        <v-list-tile dark v-for="link in links" :key="link.title" router :to="link.route">
+          <v-list-tile-action>
+            <v-icon>{{link.icon}}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>{{link.title}}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+      <v-spacer></v-spacer>
+      <v-list>
+
+
+            <v-layout>
+              <Contact></Contact>
+              <NyslRules></NyslRules>
+              <Formulario></Formulario>
+          </v-layout>
+      </v-list>
+    </v-layout>
   </v-navigation-drawer>
 </nav>
 </template>
@@ -27,17 +39,19 @@
 <script>
 import LogIn from '@/components/LogIn'
 import logOut from '@/components/logOut'
-import signUp from '@/components/signUp.vue'
+import registrar from '@/components/registrar'
 import fire from '@/fb.js'
+import Contact from '@/components/Contact'
+import NyslRules from '@/components/Nysl-Rules'
+import Formulario from '@/components/Formulario'
 export default {
   components: {
     LogIn,
-    signUp,
-    logOut
+    registrar,
+    logOut,Contact,NyslRules,Formulario
   },
   data () {
     return {
-      // Home ,About,NYSL Rules,Schedule,Formulario,Contacto..
       drawer: false
     }
   },
@@ -45,7 +59,9 @@ export default {
     links: function () {
       return this.$store.state.links
     },
-    isUserLog: function () { return this.$store.state.isUserLog }
+    isUserLog: function () {
+      return this.$store.state.isUserLog
+    }
   },
   methods: {
     state () {

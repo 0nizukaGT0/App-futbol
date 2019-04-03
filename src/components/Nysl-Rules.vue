@@ -2,11 +2,11 @@
 <v-layout row justify-center>
   <v-dialog v-model="dialog" width="600px">
     <template v-slot:activator="{ on }">
-      <v-btn color="primary" dark v-on="on">NYSL Rules</v-btn>
+      <v-btn icon outline color="white" dark v-on="on"><v-icon>assignment</v-icon></v-btn>
     </template>
     <v-card>
       <v-card-title>
-        <span class="headline">Use Google's location service?</span>
+        <span class="headline">NYSl Rules</span>
       </v-card-title>
       <v-card-text>
 
@@ -299,8 +299,7 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="green darken-1" flat="flat" @click="dialog = false">Disagree</v-btn>
-        <v-btn color="green darken-1" flat="flat" @click="dialog = false">Agree</v-btn>
+        <v-btn color="green darken-1" flat="flat" @click="dialog = false">OK Got it!</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

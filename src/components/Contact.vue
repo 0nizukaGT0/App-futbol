@@ -1,9 +1,9 @@
 <template>
-<v-layout row justify-center>
-  <v-btn color="primary" dark @click.stop="dialog = true">
-    Contacto
-  </v-btn>
 
+<v-layout row justify-center>
+  <v-btn icon outline color="white" dark @click.stop="dialog = true">
+    <v-icon>portrait</v-icon>
+  </v-btn>
   <v-dialog v-model="dialog" max-width="290">
     <v-card>
       <v-card-text>
