@@ -1,22 +1,16 @@
 <template>
 <div class="about">
-  <h2>Aqui es mi campo de pruebas</h2>
-<addPlayer v-if="isAdmin"></addPlayer>
-<addMatch v-if="isAdmin"></addMatch>
-<addTeam v-if="isAdmin"></addTeam>
+  <h2>Estos son las implementacion que faltan agregar</h2>
+  <p>Veriificacion por mail</p>
+  <p>Seguridad en la base de datos y authentication</p>
+  <p>Arreglar todos los formularios</p>
+
 </div>
 </template>
 <script>
 
-import addPlayer from '@/components/addPlayer'
-import addMatch from '@/components/addMatch'
-import addTeam from '@/components/addTeam'
 export default {
-  components: {addPlayer, addMatch, addTeam },
-  computed: {
-    isAdmin () {
-      return this.$store.getters.isUserAdmin
-    }
-  }
+  components: { }
+
 }
 </script>

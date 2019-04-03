@@ -8,6 +8,7 @@
     <registrar v-if="!isUserLog"></registrar>
     <v-btn v-if="isUserLog" depressed @click="state">State</v-btn>
     <LogIn v-if="!isUserLog" />
+
   </v-toolbar>
   <v-navigation-drawer dark v-model="drawer" app class="secondary">
     <v-layout column fill-height>
@@ -23,7 +24,6 @@
       </v-list>
       <v-spacer></v-spacer>
       <v-list>
-
 
             <v-layout>
               <Contact></Contact>
@@ -44,11 +44,15 @@ import fire from '@/fb.js'
 import Contact from '@/components/Contact'
 import NyslRules from '@/components/Nysl-Rules'
 import Formulario from '@/components/Formulario'
+
 export default {
   components: {
     LogIn,
     registrar,
-    logOut,Contact,NyslRules,Formulario
+    logOut,
+    Contact,
+    NyslRules,
+    Formulario
   },
   data () {
     return {

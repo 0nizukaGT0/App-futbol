@@ -1,8 +1,10 @@
 <template>
-<v-layout row justify-center>
+
   <v-dialog v-model="dialog" persistent max-width="290">
     <template v-slot:activator="{ on }">
-      <v-btn color="primary" dark v-on="on">Añadir jugador</v-btn>
+      <v-btn fab  dark  small  color="red" v-on="on">
+        <v-icon>fas fa-flag-checkered</v-icon>
+      </v-btn>
     </template>
     <v-card>
       <v-card-title class="headline">Add Player</v-card-title>
@@ -30,7 +32,7 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
-</v-layout>
+
 </template>
 <script>
 export default {

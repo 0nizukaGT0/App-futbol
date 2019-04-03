@@ -93,7 +93,7 @@ export default {
         var email = error.email
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential
-        console.log(`el error es  ${errorCode} el mensaje ${errorMessage} credencial ${credential}`)
+        console.log(`el error es  ${errorCode} el mensaje ${errorMessage} credencial ${credential} el email es ${email}`)
       })
     },
     facebookAuth () {
@@ -112,7 +112,7 @@ export default {
         var email = error.email
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential
-        console.log(`el error es  ${errorCode} el mensaje ${errorMessage} credencial ${credential}`)
+        console.log(`el error es  ${errorCode} el mensaje ${errorMessage} credencial ${credential} el email de error es ${email}`)
       })
     },
     twitterAuth () {
@@ -124,7 +124,7 @@ export default {
         var secret = result.credential.secret
         // The signed-in user info.
         var user = result.user
-        console.log(`El user es ${user}, su token es ${token}`)
+        console.log(`El user es ${user}, su token es ${token} tambien tiene un secret ${secret}`)
       }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code
@@ -133,7 +133,7 @@ export default {
         var email = error.email
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential
-        console.log(`el error es  ${errorCode} el mensaje ${errorMessage} credencial ${credential}`)
+        console.log(`el error es  ${errorCode} el mensaje ${errorMessage} credencial ${credential} el email de error es ${email}`)
       })
     }
   }

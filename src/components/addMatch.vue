@@ -1,8 +1,10 @@
 <template>
-<v-layout row justify-center>
+
   <v-dialog v-model="dialog" persistent max-width="290">
     <template v-slot:activator="{ on }">
-      <v-btn color="primary" dark v-on="on">Añadir Match</v-btn>
+      <v-btn fab dark large color="green" v-on="on">
+        <v-icon>fas fa-futbol</v-icon>
+      </v-btn>
     </template>
     <v-card>
       <v-card-title class="headline">Añadir Match</v-card-title>
@@ -26,7 +28,7 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
-</v-layout>
+
 </template>
 <script>
 import fire from '@/fb.js'
