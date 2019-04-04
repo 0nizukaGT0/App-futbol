@@ -47,7 +47,7 @@
 import LogIn from '@/components/LogIn'
 import logOut from '@/components/logOut'
 import registrar from '@/components/registrar'
-import fire from '@/fb.js'
+// import fire from '@/fb.js'
 import Contact from '@/components/Contact'
 import NyslRules from '@/components/Nysl-Rules'
 import Formulario from '@/components/Formulario'
