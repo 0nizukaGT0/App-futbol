@@ -6,13 +6,20 @@
     <v-spacer></v-spacer>
     <logOut v-if="isUserLog"></logOut>
     <registrar v-if="!isUserLog"></registrar>
-    <v-btn v-if="isUserLog" depressed @click="state">State</v-btn>
+    <!-- <v-btn v-if="isUserLog" depressed @click="state">State</v-btn> -->
     <LogIn v-if="!isUserLog" />
 
   </v-toolbar>
   <v-navigation-drawer dark v-model="drawer" app class="secondary">
     <v-layout column fill-height>
+
       <v-list>
+        <v-layout column align-center>
+        <v-flex align-self-center>
+          <v-avatar :tile="false" :size="160" color="grey lighten-4">
+          <img :src="activeAvatar" alt="avatar"> </v-avatar>
+        </v-flex>
+        </v-layout>
         <v-list-tile dark v-for="link in links" :key="link.title" router :to="link.route">
           <v-list-tile-action>
             <v-icon>{{link.icon}}</v-icon>
@@ -56,7 +63,10 @@ export default {
   },
   data () {
     return {
-      drawer: false
+      drawer: false,
+      avatarImg: ['https://kolping.bo/wp-content/uploads/2017/10/avatar-anonimo.png',
+        'https://c8.alamy.com/compes/r9y3e2/avatar-nino-sosteniendo-un-balon-de-futbol-sobre-fondo-blanco-ilustracion-vectorial-r9y3e2.jpg',
+        'https://pngimage.net/wp-content/uploads/2018/05/admin-avatar-png.png']
     }
   },
   computed: {
@@ -65,8 +75,23 @@ export default {
     },
     isUserLog: function () {
       return this.$store.state.isUserLog
+    },
+    isAdmin () {
+      return this.$store.getters.isUserAdmin
+    },
+    activeAvatar: function () {
+      let source = ''
+      if (this.isAdmin) {
+        source = this.avatarImg[2]
+      } else if (this.isUserLog) {
+        source = this.avatarImg[1]
+      } else {
+        source = this.avatarImg[0]
+      }
+      return source
     }
-  },
+  }
+  /*,
   methods: {
     state () {
       fire.auth.onAuthStateChanged(function (user) {
@@ -89,5 +114,6 @@ export default {
       })
     }
   }
+*/
 }
 </script>
