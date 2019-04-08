@@ -4,11 +4,23 @@ import fire from './fb.js'
 Vue.use(Vuex)
 let dataFire = []
 let usuario = {}
+let dataChats = []
 fire.db.collection('matches').onSnapshot(res => {
   const changes = res.docChanges()
   changes.forEach(change => {
     if (change.type === 'added') {
       dataFire.push({
+        ...change.doc.data(),
+        id: change.doc.id
+      })
+    }
+  })
+})
+fire.db.collection('chats').onSnapshot(res => {
+  const changes = res.docChanges()
+  changes.forEach(change => {
+    if (change.type === 'added') {
+      dataChats.push({
         ...change.doc.data(),
         id: change.doc.id
       })
@@ -38,6 +50,7 @@ fire.auth.onAuthStateChanged(function (user) {
 export default new Vuex.Store({
   state: {
     matches: dataFire,
+    chats: dataChats,
     links: [
       {
         title: 'Home',
@@ -45,9 +58,9 @@ export default new Vuex.Store({
         route: '/'
       },
       {
-        title: 'About',
+        title: 'Chat',
         icon: 'add',
-        route: '/about'
+        route: '/Chat'
       }, {
         title: 'Schedule',
         icon: 'schedule',

@@ -7,8 +7,7 @@
             <h4>
             Aqui añadiremos un input que hara una mutaion a la fecha actual , eso trigerea el
              getter que nos devuelve fechas cercanas a eso , en este compoente debemos ver que hacer si no hya nada</h4>
-            <v-card v-if='isAdmin'>
-
+            <v-card v-if='isUserLog'>
               <v-text>Saludos <b>{{currentUser}}</b> bienvenido a la app de futbol 🤖</v-text>
             </v-card>
             <v-card></v-card>
@@ -22,15 +21,14 @@ export default {
   components: {},
   data () {
     return {
-
     }
   },
   computed: {
     matches () {
       return this.$store.state.matches
     },
-    isAdmin () {
-      return this.$store.getters.isUserAdmin
+    isUserLog: function () {
+      return this.$store.state.isUserLog
     },
     currentUser () {
       return this.$store.state.currentUser
