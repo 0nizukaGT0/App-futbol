@@ -1,11 +1,25 @@
 <template>
-<div >
-  <h2>Aqui desplegaremos los mensajes de los usuarios</h2>
-<v-card>
-  <message></message>
-<v-text-field v-model="currentMessage" label="Message.."></v-text-field>
-<v-btn flat @click="sendMessage">send</v-btn>
-</v-card>
+<div>
+  <v-card flat>
+
+    <message ></message>
+    <v-spacer></v-spacer>
+    <v-layout row align-content-center>
+    <div class="enterMessage">
+        <v-textarea
+     box
+     label="Your message here ..."
+     auto-grow
+       rows="1"
+         v-model="currentMessage"
+
+   ></v-textarea>
+        <v-btn  fab dark large color="cyan" :disabled="sendMessageDisable" @click="sendMessage">
+          <v-icon>send</v-icon>
+        </v-btn>
+    </div>
+    </v-layout>
+  </v-card>
 
 </div>
 </template>
@@ -13,7 +27,9 @@
 import message from '@/components/message'
 import fire from '@/fb.js'
 export default {
-  components: { message },
+  components: {
+    message
+  },
   data () {
     return {
       currentMessage: ''
@@ -22,6 +38,12 @@ export default {
   computed: {
     currentUser: function () {
       return this.$store.state.currentUser
+    },
+    sendMessageDisable: function () {
+      if (this.currentMessage.length<1) {
+      return true
+      }
+      return false
     }
   },
   methods: {
@@ -38,3 +60,9 @@ export default {
 
 }
 </script>
+<style>
+  .enterMessage{
+    display: flex;
+    width: 100%
+  }
+</style>
