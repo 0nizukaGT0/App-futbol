@@ -40,8 +40,8 @@ export default {
       return this.$store.state.currentUser
     },
     sendMessageDisable: function () {
-      if (this.currentMessage.length<1) {
-      return true
+      if (this.currentMessage.length < 1) {
+        return true
       }
       return false
     }

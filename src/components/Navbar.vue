@@ -2,7 +2,7 @@
 <nav>
   <v-toolbar flat app color="green darken-1">
     <v-toolbar-side-icon class="green darken-2" @click="drawer=! drawer"></v-toolbar-side-icon>
-    <v-toolbar-title class="white--text">{{this.$route.name}}</v-toolbar-title>
+    <v-toolbar-title class="white--text">{{this.$route.name}}->{{this.$route.params.team}}</v-toolbar-title>
     <v-spacer></v-spacer>
     <logOut v-if="isUserLog"></logOut>
     <registrar v-if="!isUserLog"></registrar>
@@ -12,7 +12,6 @@
   </v-toolbar>
   <v-navigation-drawer dark v-model="drawer" app class="secondary">
     <v-layout column fill-height>
-
       <v-list>
         <v-layout column align-center>
         <v-flex align-self-center>
@@ -31,7 +30,6 @@
       </v-list>
       <v-spacer></v-spacer>
       <v-list>
-
             <v-layout>
               <Contact></Contact>
               <NyslRules></NyslRules>
@@ -47,7 +45,6 @@
 import LogIn from '@/components/LogIn'
 import logOut from '@/components/logOut'
 import registrar from '@/components/registrar'
-// import fire from '@/fb.js'
 import Contact from '@/components/Contact'
 import NyslRules from '@/components/Nysl-Rules'
 import Formulario from '@/components/Formulario'

@@ -1,19 +1,14 @@
 <template>
 <div id="home">
+        <v-layout column align-between class="homeLayout">
 
-  <v-container bg fill-height grid-list-md text-xs-center>
-        <v-layout row wrap align-center>
-          <v-flex>
-            <h4>
-            Aqui añadiremos un input que hara una mutaion a la fecha actual , eso trigerea el
-             getter que nos devuelve fechas cercanas a eso , en este compoente debemos ver que hacer si no hya nada</h4>
-            <v-card v-if='isUserLog'>
-              <v-text>Saludos <b>{{currentUser}}</b> bienvenido a la app de futbol 🤖</v-text>
-            </v-card>
-            <v-card></v-card>
-          </v-flex>
+          <v-btn class="buttonHome"  color="lime lighten-2" dark  block to='/teams'>
+            <h1 class="display-3">Teams</h1>
+          </v-btn>
+          <v-btn class="buttonHome"  color="light-green lighten-2" dark block to='/places'>
+            <h1 class="display-3" >Places</h1></v-btn>
+          <!-- <v-btn class="buttonHome"  disabled  color="green lighten-2" dark block><h1 class="display-3">Dates</h1></v-btn> -->
         </v-layout>
-      </v-container>
 </div>
 </template>
 <script>
@@ -35,3 +30,14 @@ export default {
     }
   } }
 </script>
+<style>
+.homeLayout{
+  height: 100%;
+    position: absolute;
+    width: 100%;
+}
+.buttonHome{
+  margin: 30px 0;
+  border-radius: 45px;
+}
+</style>
