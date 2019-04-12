@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+
     <v-layout column class="homeLayout" align-around>
       <v-layout >
         <v-flex class="ma-2 "> <v-btn class="buttonStyle headline" to="/places/AJ Katzenmaier" dark block large color="light-green lighten-2">AJ Katzenmaier</v-btn></v-flex>
@@ -14,7 +14,7 @@
         <v-flex class="ma-2 "> <v-btn class="buttonStyle headline" to="/places/South" dark block large color="light-green lighten-2">South</v-btn></v-flex>
       </v-layout>
     </v-layout>
-  </div>
+
 </template>
 
 <script>

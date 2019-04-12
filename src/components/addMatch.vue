@@ -1,5 +1,4 @@
 <template>
-
   <v-dialog v-model="dialog" persistent max-width="290">
     <template v-slot:activator="{ on }">
       <v-btn fab dark large color="green" v-on="on">
@@ -72,7 +71,6 @@ export default {
       if (this.$refs.form.validate()) {
         this.snackbar = true
       }
-      console.log('hola')
     },
     reset () {
       this.$refs.form.reset()

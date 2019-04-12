@@ -44,13 +44,28 @@ export default {
         return true
       }
       return false
+    },
+    fecha: function () {
+      let fechaActual = {
+        hora: new Date().getHours(),
+        minuto: new Date().getMinutes(),
+        dia: new Date().getDate(),
+        mes: new Date().getMonth() + 1
+      }
+      return fechaActual
     }
   },
   methods: {
     sendMessage () {
       const message = {
         user: this.currentUser,
-        mensaje: this.currentMessage
+        mensaje: this.currentMessage,
+        date: {
+          hora: new Date().getHours(),
+          minuto: new Date().getMinutes(),
+          dia: new Date().getDate(),
+          mes: new Date().getMonth() + 1
+        }
       }
       fire.db.collection('chats').add(message).then(() => {
         console.log('Este partido a sido añadido')
