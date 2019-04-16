@@ -1,5 +1,7 @@
 <template lang="html">
-    <v-btn depressed slot="activator" class="succes" @click="logOut">Log Out</v-btn>
+    <v-list-tile-title @click="logOut">
+Log Out
+</v-list-tile-title>
 </template>
 
 <script>

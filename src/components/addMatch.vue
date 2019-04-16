@@ -1,9 +1,9 @@
 <template>
   <v-dialog v-model="dialog" persistent max-width="290">
     <template v-slot:activator="{ on }">
-      <v-btn fab dark large color="green" v-on="on">
-        <v-icon>fas fa-futbol</v-icon>
-      </v-btn>
+      <v-list-tile-title v-on="on">
+        + Match
+      </v-list-tile-title>
     </template>
     <v-card>
       <v-card-title class="headline">Añadir Match</v-card-title>

@@ -4,7 +4,7 @@
     <v-layout row>
       <div   align-self-center class="ma-2">
         <v-avatar color="yellow">
-           <span class="black--text headline">H</span>
+           <span class="black--text headline">{{message.letter}}</span>
          </v-avatar>
       </div>
       <v-flex>
@@ -30,6 +30,12 @@ export default {
     mensajes: function () {
       return this.$store.state.chats
     }
+  },
+  mounted () {
+    document.querySelectorAll('.contentMessage')[0].scrollTop = document.querySelectorAll('.contentMessage')[0].scrollHeight
+  },
+  updated () {
+    document.querySelectorAll('.contentMessage')[0].scrollTop = document.querySelectorAll('.contentMessage')[0].scrollHeight
   }
 }
 </script>

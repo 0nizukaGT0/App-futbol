@@ -13,48 +13,49 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: [{
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/chat',
-    name: 'Chat',
-    component: Chat
+  routes: [
+    {
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/chat',
+      name: 'Chat',
+      component: Chat
 
-  },
-  {
-    path: '/schedule',
-    name: 'Schedule',
-    component: Schedule
+    },
+    {
+      path: '/schedule',
+      name: 'Schedule',
+      component: Schedule
 
-  },
-  {
-    path: '/teams',
-    name: 'Teams',
-    component: Teams
+    },
+    {
+      path: '/teams',
+      name: 'Teams',
+      component: Teams
 
-  },
-  {
-    path: '/teams/:team',
-    name: 'Teams',
-    props: true,
-    component: Team
+    },
+    {
+      path: '/teams/:team',
+      name: 'Teams',
+      props: true,
+      component: Team
 
-  },
-  {
-    path: '/places',
-    name: 'Places',
-    component: Places
+    },
+    {
+      path: '/places',
+      name: 'Places',
+      component: Places
 
-  },
-  {
-    path: '/places/:place',
-    name: 'Places',
-    props: true,
-    component: Place
+    },
+    {
+      path: '/places/:place',
+      name: 'Places',
+      props: true,
+      component: Place
 
-  }
+    }
   ]
 })

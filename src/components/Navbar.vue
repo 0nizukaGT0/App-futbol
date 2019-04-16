@@ -1,14 +1,12 @@
 <template >
 <nav>
   <v-toolbar flat app color="green darken-1">
-    <v-toolbar-side-icon class="green darken-2" @click="drawer=! drawer"></v-toolbar-side-icon>
-    <v-toolbar-title class="white--text">{{this.$route.name}}->{{this.$route.params.team}}</v-toolbar-title>
+    <v-toolbar-side-icon dark @click="drawer=! drawer"></v-toolbar-side-icon>
+    <v-toolbar-title class="white--text">{{this.$route.name}}
+      <span v-if="this.$route.name=='Teams' ||this.$route.name=='Places'">-></span>
+      {{this.$route.params.team}}</v-toolbar-title>
     <v-spacer></v-spacer>
-    <logOut v-if="isUserLog"></logOut>
-    <registrar v-if="!isUserLog"></registrar>
-    <!-- <v-btn v-if="isUserLog" depressed @click="state">State</v-btn> -->
-    <LogIn v-if="!isUserLog" />
-
+    <menuNavbar></menuNavbar>
   </v-toolbar>
   <v-navigation-drawer dark v-model="drawer" app class="secondary">
     <v-layout column fill-height>
@@ -42,21 +40,16 @@
 </template>
 
 <script>
-import LogIn from '@/components/LogIn'
-import logOut from '@/components/logOut'
-import registrar from '@/components/registrar'
 import Contact from '@/components/Contact'
 import NyslRules from '@/components/Nysl-Rules'
 import Formulario from '@/components/Formulario'
-
+import menuNavbar from '@/components/menuNavbar'
 export default {
   components: {
-    LogIn,
-    registrar,
-    logOut,
     Contact,
     NyslRules,
-    Formulario
+    Formulario,
+    menuNavbar
   },
   data () {
     return {
@@ -70,12 +63,6 @@ export default {
     links: function () {
       return this.$store.state.links
     },
-    isUserLog: function () {
-      return this.$store.state.isUserLog
-    },
-    isAdmin () {
-      return this.$store.getters.isUserAdmin
-    },
     activeAvatar: function () {
       let source = ''
       if (this.isAdmin) {
@@ -88,29 +75,5 @@ export default {
       return source
     }
   }
-  /*,
-  methods: {
-    state () {
-      fire.auth.onAuthStateChanged(function (user) {
-        if (user) {
-          // User is signed in.
-          var displayName = user.displayName
-          var email = user.email
-          // var emailVerified = user.emailVerified
-          // var photoURL = user.photoURL
-          // var isAnonymous = user.isAnonymous
-          var uid = user.uid
-          var providerData = user.providerData
-          console.log(`El usuario actual es ${displayName} con el email ${email} y su id ${uid}  y su proveedor${providerData}`)
-          // ...
-        } else {
-          // User is signed out.
-          // ...
-          console.log('No hay usuario conectado')
-        }
-      })
-    }
-  }
-*/
 }
 </script>

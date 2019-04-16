@@ -1,19 +1,19 @@
 <template lang="html">
     <v-dialog v-model="dialog" persistent max-width="290">
       <template v-slot:activator="{ on }">
-        <v-btn depressed v-on="on">Log in</v-btn>
+        <v-list-tile-title v-on="on">Log in</v-list-tile-title>
       </template>
       <v-card>
         <v-card-title class="headline">Log In</v-card-title>
         <v-card-text>
           <v-form>
             <v-text-field label="Email" v-model="mail"></v-text-field>
-            <v-text-field label="Password" v-model="pass"></v-text-field>
+            <v-text-field type="password" label="Password" v-model="pass"></v-text-field>
           </v-form>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" flat @click="dialog = false">Disagree</v-btn>
+          <v-btn color="green darken-1" flat @click="disagree">Disagree</v-btn>
           <v-btn color="green darken-1" flat @click="logIn">Log In</v-btn>
         </v-card-actions>
       </v-card>
@@ -40,6 +40,11 @@ export default {
           this.$store.commit('userLogged', this.user)
         })
       this.dialog = false
+    },
+    disagree () {
+      this.dialog = false
+      this.mail = ''
+      this.pass = ''
     }
   }
 }

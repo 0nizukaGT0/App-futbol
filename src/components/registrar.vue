@@ -1,8 +1,8 @@
 <template>
 <v-dialog>
-  <v-btn depressed slot="activator" class="succes">
+  <v-list-tile-title depressed slot="activator" class="succes">
     Sign up
-  </v-btn>
+  </v-list-tile-title>
   <v-card>
     <v-card-text>
       <v-form>
