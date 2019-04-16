@@ -3,8 +3,8 @@
   <v-toolbar flat app color="green darken-1">
     <v-toolbar-side-icon dark @click="drawer=! drawer"></v-toolbar-side-icon>
     <v-toolbar-title class="white--text">{{this.$route.name}}
-      <span v-if="this.$route.name=='Teams' ||this.$route.name=='Places'">-></span>
-      {{this.$route.params.team}}</v-toolbar-title>
+      <span v-if="this.$route.name=='Teams' || this.$route.name=='Places'">-></span>
+      {{this.$route.params.team || this.$route.params.place}}</v-toolbar-title>
     <v-spacer></v-spacer>
     <menuNavbar></menuNavbar>
   </v-toolbar>
@@ -31,7 +31,6 @@
             <v-layout>
               <Contact></Contact>
               <NyslRules></NyslRules>
-              <Formulario></Formulario>
           </v-layout>
       </v-list>
     </v-layout>
@@ -42,13 +41,11 @@
 <script>
 import Contact from '@/components/Contact'
 import NyslRules from '@/components/Nysl-Rules'
-import Formulario from '@/components/Formulario'
 import menuNavbar from '@/components/menuNavbar'
 export default {
   components: {
     Contact,
     NyslRules,
-    Formulario,
     menuNavbar
   },
   data () {

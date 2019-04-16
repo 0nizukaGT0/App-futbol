@@ -1,9 +1,10 @@
 <template>
-<v-dialog>
+<v-dialog max-width="390">
   <v-list-tile-title depressed slot="activator" class="succes">
     Sign up
   </v-list-tile-title>
   <v-card>
+    <v-card-title class="headline">Sign Up</v-card-title>
     <v-card-text>
       <v-form>
         <v-layout column>
@@ -14,7 +15,14 @@
             <v-text-field label="Password" v-model="pass"></v-text-field>
           </v-flex>
         </v-layout>
-        <v-btn color="succes" @click="enviarUser">Send</v-btn>
+      </v-form>
+      <v-layout justify-end>
+        <v-btn flat @click="close">Close</v-btn>
+          <v-btn outline @click="enviarUser">Send</v-btn>
+      </v-layout>
+<v-divider></v-divider>
+<v-card-title class="">You can also sign up with</v-card-title>
+      <v-layout row wrap   justify-space-between>
         <v-btn icon @click="googleAuth">
           <v-img src="https://image.flaticon.com/icons/png/512/281/281764.png"></v-img>
         </v-btn>
@@ -27,7 +35,7 @@
         <v-btn icon @click="twitterAuth">
           <v-img src="https://ikaltours.com/wp-content/uploads/2018/10/twitter-round-logo-png-transparent-background-7.png"></v-img>
         </v-btn>
-      </v-form>
+      </v-layout>
     </v-card-text>
   </v-card>
 </v-dialog>

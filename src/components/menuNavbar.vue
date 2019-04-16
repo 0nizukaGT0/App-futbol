@@ -7,16 +7,16 @@
       </v-btn>
     </template>
     <v-list>
-      <v-list-tile v-if="isUserLog">
+      <v-list-tile v-if="!isUserLog">
         <v-list-tile-title><LogIn></LogIn></v-list-tile-title>
       </v-list-tile>
-      <v-list-tile v-if="isUserLog">
+      <v-list-tile v-if="!isUserLog">
         <v-list-tile-title><registrar></registrar></v-list-tile-title>
       </v-list-tile>
       <v-list-tile v-if="isAdmin">
         <v-list-tile-title><addMatch></addMatch></v-list-tile-title>
       </v-list-tile>
-      <v-list-tile v-if="!isUserLog">
+      <v-list-tile v-if="isUserLog">
         <v-list-tile-title><logOut></logOut></v-list-tile-title>
       </v-list-tile>
     </v-list>
