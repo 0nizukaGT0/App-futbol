@@ -18,11 +18,11 @@
       </v-form>
       <v-layout justify-end>
         <v-btn flat @click="close">Close</v-btn>
-          <v-btn outline @click="enviarUser">Send</v-btn>
+        <v-btn outline @click="enviarUser">Send</v-btn>
       </v-layout>
-<v-divider></v-divider>
-<v-card-title class="">You can also sign up with</v-card-title>
-      <v-layout row wrap   justify-space-between>
+      <v-divider></v-divider>
+      <v-card-title class="">You can also sign up with</v-card-title>
+      <v-layout row wrap justify-space-between>
         <v-btn icon @click="googleAuth">
           <v-img src="https://image.flaticon.com/icons/png/512/281/281764.png"></v-img>
         </v-btn>
@@ -44,7 +44,7 @@
 <script>
 import fire from '@/fb.js'
 export default {
-  data () {
+  data() {
     return {
       pass: '',
       mail: '',
@@ -52,28 +52,28 @@ export default {
     }
   },
   methods: {
-    enviarUser () {
+    enviarUser() {
       fire.auth.createUserWithEmailAndPassword(this.mail, this.pass)
         .then(res => {
           console.log(res)
           this.user = res.user.email
           this.$store.commit('userLogged', this.user)
-        }).catch(function (error) {
+        }).catch(function(error) {
           // Handle Errors here.
           console.log(error.code)
           console.log(error.message)
         })
     },
-    googleAuth () {
+    googleAuth() {
       let provider = fire.providerGoogle
-      fire.auth.signInWithPopup(provider).then(function (result) {
+      fire.auth.signInWithPopup(provider).then(function(result) {
         // This gives you a Google Access Token. You can use it to access the Google API.
         var token = result.credential.accessToken
         // The signed-in user info.
         var user = result.user
         console.log(`El user es ${user}, su token es ${token}`)
         // ...
-      }).catch(function (error) {
+      }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code
         var errorMessage = error.message
@@ -85,15 +85,15 @@ export default {
         console.log(`el error es  ${errorCode} el mensaje ${errorMessage} credencial ${credential}`)
       })
     },
-    githubAuth () {
+    githubAuth() {
       let provider = fire.providerGithub
-      fire.auth.signInWithPopup(provider).then(function (result) {
+      fire.auth.signInWithPopup(provider).then(function(result) {
         // This gives you a GitHub Access Token. You can use it to access the GitHub API.
         var token = result.credential.accessToken
         // The signed-in user info.
         var user = result.user
         console.log(`El user es ${user}, su token es ${token}`)
-      }).catch(function (error) {
+      }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code
         var errorMessage = error.message
@@ -104,15 +104,15 @@ export default {
         console.log(`el error es  ${errorCode} el mensaje ${errorMessage} credencial ${credential} el email es ${email}`)
       })
     },
-    facebookAuth () {
+    facebookAuth() {
       let provider = fire.providerFacebook
-      fire.auth.signInWithPopup(provider).then(function (result) {
+      fire.auth.signInWithPopup(provider).then(function(result) {
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
         var token = result.credential.accessToken
         // The signed-in user info.
         var user = result.user
         console.log(`El user es ${user}, su token es ${token}`)
-      }).catch(function (error) {
+      }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code
         var errorMessage = error.message
@@ -123,9 +123,9 @@ export default {
         console.log(`el error es  ${errorCode} el mensaje ${errorMessage} credencial ${credential} el email de error es ${email}`)
       })
     },
-    twitterAuth () {
+    twitterAuth() {
       let provider = fire.providerTwitter
-      fire.auth.signInWithPopup(provider).then(function (result) {
+      fire.auth.signInWithPopup(provider).then(function(result) {
         // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
         // You can use these server side with your app's credentials to access the Twitter API.
         var token = result.credential.accessToken
@@ -133,7 +133,7 @@ export default {
         // The signed-in user info.
         var user = result.user
         console.log(`El user es ${user}, su token es ${token} tambien tiene un secret ${secret}`)
-      }).catch(function (error) {
+      }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code
         var errorMessage = error.message

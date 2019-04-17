@@ -1,7 +1,6 @@
 <template>
 <div id="home">
         <v-layout column align-between class="homeLayout">
-
           <v-btn class="buttonHome"  color="lime lighten-2" dark  block to='/teams'>
             <h1 class="display-3">Teams</h1>
           </v-btn>

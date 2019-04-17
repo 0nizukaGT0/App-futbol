@@ -1,7 +1,6 @@
 <template>
 <div>
   <v-card flat>
-
     <message></message>
     <v-spacer></v-spacer>
     <v-layout row align-content-center>
